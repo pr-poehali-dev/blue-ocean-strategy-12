@@ -95,14 +95,14 @@ function ServiceCard({
         alt={service.title}
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
       <div className="absolute bottom-0 left-0 p-4 md:p-5">
         <div className="mb-1 flex items-center gap-2">
-          <div className="h-px w-5 bg-foreground/50" />
-          <span className="font-mono text-xs text-foreground/60">0{index + 1}</span>
+          <div className="h-px w-5 bg-white/60" />
+          <span className="font-mono text-xs text-white/70">0{index + 1}</span>
         </div>
-        <h3 className="font-sans text-lg font-light text-foreground md:text-xl">{service.title}</h3>
-        <p className="mt-1 max-w-xs text-xs leading-relaxed text-foreground/70 md:text-sm">{service.description}</p>
+        <h3 className="font-sans text-lg font-light text-white md:text-xl">{service.title}</h3>
+        <p className="mt-1 max-w-xs text-xs leading-relaxed text-white/80 md:text-sm">{service.description}</p>
       </div>
     </div>
   )

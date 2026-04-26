@@ -87,10 +87,10 @@ export function WorkSection() {
                   alt={slide.title}
                   className="h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                 <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
-                  <p className="font-mono text-xs text-foreground/60 mb-1">{slide.label}</p>
-                  <h3 className="font-sans text-2xl font-light text-foreground md:text-3xl">{slide.title}</h3>
+                  <p className="font-mono text-xs text-white/70 mb-1">{slide.label}</p>
+                  <h3 className="font-sans text-2xl font-light text-white md:text-3xl">{slide.title}</h3>
                 </div>
               </div>
             ))}
