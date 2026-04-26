@@ -33,10 +33,10 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
               style={{ transitionDelay: "200ms" }}
             >
               <p className="max-w-md text-sm leading-relaxed text-foreground/90 md:text-lg">
-                Мы — команда сертифицированных мастеров с опытом работы более 10 лет. Работаем без выходных и праздников, в любое время суток.
+                Я — частный мастер. Работаю аккуратно, без выходных и праздников, в любое время суток.
               </p>
               <p className="max-w-md text-sm leading-relaxed text-foreground/90 md:text-lg">
-                Гарантируем вскрытие без повреждений и полную конфиденциальность. Приедем с официальными документами.
+                Гарантирую вскрытие без повреждений и полную конфиденциальность. Приезжаю с официальными документами.
               </p>
             </div>
           </div>
