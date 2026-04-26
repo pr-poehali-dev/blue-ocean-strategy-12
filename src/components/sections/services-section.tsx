@@ -25,6 +25,12 @@ const services = [
     direction: "bottom",
     image: "https://cdn.poehali.dev/projects/790deb4b-7455-4611-86c6-6c77896e10e7/files/3ca07b2a-f127-4fa7-a2ef-834323a94d40.jpg",
   },
+  {
+    title: "Отключение сигнализации",
+    description: "Отключу автомобильную сигнализацию, сниму блокировки и иммобилайзерные метки. Без повреждений электроники.",
+    direction: "right",
+    image: "https://cdn.poehali.dev/projects/790deb4b-7455-4611-86c6-6c77896e10e7/files/98931864-0969-4993-b514-df481f617301.jpg",
+  },
 ]
 
 export function ServicesSection() {
@@ -47,7 +53,7 @@ export function ServicesSection() {
           <p className="font-mono text-sm text-foreground/60 md:text-base">/ Что мы делаем</p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 md:gap-6">
+        <div className="grid gap-4 md:grid-cols-3 md:gap-5">
           {services.map((service, i) => (
             <ServiceCard key={i} service={service} index={i} isVisible={isVisible} />
           ))}
