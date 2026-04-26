@@ -1,7 +1,31 @@
 import { useReveal } from "@/hooks/use-reveal"
+import { useState } from "react"
+import Icon from "@/components/ui/icon"
+
+const slides = [
+  {
+    url: "https://cdn.poehali.dev/projects/790deb4b-7455-4611-86c6-6c77896e10e7/files/5b90d934-34bb-4521-a6c2-cd0775dff95c.jpg",
+    title: "Вскрытие входной двери",
+    label: "Квартира — без царапин",
+  },
+  {
+    url: "https://cdn.poehali.dev/projects/790deb4b-7455-4611-86c6-6c77896e10e7/files/71a062f8-faae-4340-a50a-159ecf5a4dad.jpg",
+    title: "Замок высокой секретности",
+    label: "Замена механизма",
+  },
+  {
+    url: "https://cdn.poehali.dev/projects/790deb4b-7455-4611-86c6-6c77896e10e7/files/51c1ad60-fdfd-43c2-92e8-a56891c21cf3.jpg",
+    title: "Установка нового замка",
+    label: "Врезка и монтаж",
+  },
+]
 
 export function WorkSection() {
   const { ref, isVisible } = useReveal(0.3)
+  const [current, setCurrent] = useState(0)
+
+  const prev = () => setCurrent((c) => (c === 0 ? slides.length - 1 : c - 1))
+  const next = () => setCurrent((c) => (c === slides.length - 1 ? 0 : c + 1))
 
   return (
     <section
@@ -10,85 +34,69 @@ export function WorkSection() {
     >
       <div className="mx-auto w-full max-w-7xl">
         <div
-          className={`mb-12 transition-all duration-700 md:mb-16 ${
+          className={`mb-8 transition-all duration-700 md:mb-12 ${
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
           }`}
         >
           <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
             Примеры работ
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Что мы вскрывали</p>
+          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Что мы делаем</p>
         </div>
 
-        <div className="space-y-6 md:space-y-8">
-          {[
-            {
-              number: "01",
-              title: "Заперлись в квартире",
-              category: "Вскрытие входной двери — без царапин",
-              year: "2025",
-              direction: "left",
-            },
-            {
-              number: "02",
-              title: "Ключи остались в машине",
-              category: "Вскрытие автомобиля — без повреждений",
-              year: "2025",
-              direction: "right",
-            },
-            {
-              number: "03",
-              title: "Утерян ключ от сейфа",
-              category: "Вскрытие сейфа — с сохранением механизма",
-              year: "2024",
-              direction: "left",
-            },
-          ].map((project, i) => (
-            <ProjectCard key={i} project={project} index={i} isVisible={isVisible} />
-          ))}
+        <div
+          className={`relative transition-all duration-700 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+          }`}
+          style={{ transitionDelay: "200ms" }}
+        >
+          <div className="relative overflow-hidden rounded-2xl" style={{ height: "clamp(220px, 40vh, 420px)" }}>
+            {slides.map((slide, i) => (
+              <div
+                key={i}
+                className="absolute inset-0 transition-opacity duration-700"
+                style={{ opacity: i === current ? 1 : 0 }}
+              >
+                <img
+                  src={slide.url}
+                  alt={slide.title}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
+                  <p className="font-mono text-xs text-foreground/60 mb-1">{slide.label}</p>
+                  <h3 className="font-sans text-2xl font-light text-foreground md:text-3xl">{slide.title}</h3>
+                </div>
+              </div>
+            ))}
+
+            <button
+              onClick={prev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-foreground/15 backdrop-blur-md transition-all hover:bg-foreground/30"
+            >
+              <Icon name="ChevronLeft" size={20} />
+            </button>
+            <button
+              onClick={next}
+              className="absolute right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-foreground/15 backdrop-blur-md transition-all hover:bg-foreground/30"
+            >
+              <Icon name="ChevronRight" size={20} />
+            </button>
+          </div>
+
+          <div className="mt-4 flex items-center justify-center gap-2">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === current ? "w-8 bg-foreground" : "w-2 bg-foreground/30"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
-  )
-}
-
-function ProjectCard({
-  project,
-  index,
-  isVisible,
-}: {
-  project: { number: string; title: string; category: string; year: string; direction: string }
-  index: number
-  isVisible: boolean
-}) {
-  const getRevealClass = () => {
-    if (!isVisible) {
-      return project.direction === "left" ? "-translate-x-16 opacity-0" : "translate-x-16 opacity-0"
-    }
-    return "translate-x-0 opacity-100"
-  }
-
-  return (
-    <div
-      className={`group flex items-center justify-between border-b border-foreground/10 py-6 transition-all duration-700 hover:border-foreground/20 md:py-8 ${getRevealClass()}`}
-      style={{
-        transitionDelay: `${index * 150}ms`,
-        marginLeft: index % 2 === 0 ? "0" : "auto",
-        maxWidth: index % 2 === 0 ? "85%" : "90%",
-      }}
-    >
-      <div className="flex items-baseline gap-4 md:gap-8">
-        <span className="font-mono text-sm text-foreground/30 transition-colors group-hover:text-foreground/50 md:text-base">
-          {project.number}
-        </span>
-        <div>
-          <h3 className="mb-1 font-sans text-2xl font-light text-foreground transition-transform duration-300 group-hover:translate-x-2 md:text-3xl lg:text-4xl">
-            {project.title}
-          </h3>
-          <p className="font-mono text-xs text-foreground/50 md:text-sm">{project.category}</p>
-        </div>
-      </div>
-      <span className="font-mono text-xs text-foreground/30 md:text-sm">{project.year}</span>
-    </div>
   )
 }
