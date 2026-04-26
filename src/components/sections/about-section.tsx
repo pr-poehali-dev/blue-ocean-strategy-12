@@ -41,7 +41,22 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
             </div>
           </div>
 
-          <div className="flex flex-col justify-center space-y-6 md:space-y-12">
+          <div className="flex flex-col justify-center gap-4">
+            <div
+              className={`relative overflow-hidden rounded-xl transition-all duration-700 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-16 opacity-0"}`}
+              style={{ transitionDelay: "300ms", height: "clamp(120px, 16vh, 180px)" }}
+            >
+              <img
+                src="https://cdn.poehali.dev/projects/790deb4b-7455-4611-86c6-6c77896e10e7/files/7177fff9-f40d-4112-ac81-457ee05de715.jpg"
+                alt="Инструменты мастера"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/40" />
+              <div className="absolute bottom-3 left-4">
+                <p className="font-mono text-xs text-foreground/70">Профессиональный инструмент</p>
+              </div>
+            </div>
+
             {[
               { value: "10+", label: "Лет опыта", sublabel: "В замочном деле", direction: "right" },
               { value: "500+", label: "Вскрытий", sublabel: "Выполнено в этом году", direction: "left" },
@@ -59,14 +74,14 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
                   key={i}
                   className={`flex items-baseline gap-4 border-l border-foreground/30 pl-4 transition-all duration-700 md:gap-8 md:pl-8 ${getRevealClass()}`}
                   style={{
-                    transitionDelay: `${300 + i * 150}ms`,
+                    transitionDelay: `${450 + i * 150}ms`,
                     marginLeft: i % 2 === 0 ? "0" : "auto",
                     maxWidth: i % 2 === 0 ? "100%" : "85%",
                   }}
                 >
-                  <div className="text-3xl font-light text-foreground md:text-6xl lg:text-7xl">{stat.value}</div>
+                  <div className="text-2xl font-light text-foreground md:text-5xl lg:text-6xl">{stat.value}</div>
                   <div>
-                    <div className="font-sans text-base font-light text-foreground md:text-xl">{stat.label}</div>
+                    <div className="font-sans text-sm font-light text-foreground md:text-lg">{stat.label}</div>
                     <div className="font-mono text-xs text-foreground/60">{stat.sublabel}</div>
                   </div>
                 </div>

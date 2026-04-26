@@ -9,9 +9,34 @@ const slides = [
     label: "Квартира — без царапин",
   },
   {
+    url: "https://cdn.poehali.dev/projects/790deb4b-7455-4611-86c6-6c77896e10e7/files/11473709-5eb3-45d8-a0d0-89e2215fb6d3.jpg",
+    title: "Вскрытие автомобиля",
+    label: "Авто — без повреждений кузова",
+  },
+  {
+    url: "https://cdn.poehali.dev/projects/790deb4b-7455-4611-86c6-6c77896e10e7/files/ccac3ef1-6fa5-410e-b072-ea459000d1bd.jpg",
+    title: "Вскрытие сейфа",
+    label: "Сейф — с сохранением механизма",
+  },
+  {
+    url: "https://cdn.poehali.dev/projects/790deb4b-7455-4611-86c6-6c77896e10e7/files/ff5cef40-3f89-492a-942b-9362a63b4070.jpg",
+    title: "Вскрытие гаража",
+    label: "Гараж — быстрый выезд",
+  },
+  {
+    url: "https://cdn.poehali.dev/projects/790deb4b-7455-4611-86c6-6c77896e10e7/files/3ca07b2a-f127-4fa7-a2ef-834323a94d40.jpg",
+    title: "Врезка и установка замка",
+    label: "Монтаж — гарантия на работу",
+  },
+  {
     url: "https://cdn.poehali.dev/projects/790deb4b-7455-4611-86c6-6c77896e10e7/files/71a062f8-faae-4340-a50a-159ecf5a4dad.jpg",
     title: "Замок высокой секретности",
     label: "Замена механизма",
+  },
+  {
+    url: "https://cdn.poehali.dev/projects/790deb4b-7455-4611-86c6-6c77896e10e7/files/7177fff9-f40d-4112-ac81-457ee05de715.jpg",
+    title: "Профессиональный инструмент",
+    label: "Работаем только с сертифицированным оборудованием",
   },
   {
     url: "https://cdn.poehali.dev/projects/790deb4b-7455-4611-86c6-6c77896e10e7/files/51c1ad60-fdfd-43c2-92e8-a56891c21cf3.jpg",
